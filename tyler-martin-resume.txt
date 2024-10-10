@@ -1,9 +1,9 @@
-Tyler Martin
-Software Developer
-Email: tyler@tylermartin.net
-Phone: 801-369-4724
-Portfolio: tylermartin.net
-LinkedIn: linkedin.com/in/tylerjaymartin
+Tyler Martin  
+Software Developer  
+Email: tyler@tylermartin.net  
+Phone: 801-369-4724  
+Portfolio: tylermartin.net  
+LinkedIn: linkedin.com/in/tylerjaymartin  
 GitHub: github.com/laxcat
 
 Summary
@@ -27,9 +27,10 @@ Skills
 
 Experience
 
-04/2010 – Present
-Company: Tyler Martin Software Development
+04/2010 – Present  
+Company: Tyler Martin Software Development  
 Software Developer
+
 - Built a custom physically based renderer prototype intended to power in-dash systems for an internal design team at Toyota as a potential backup for their more experimental efforts
 - Utilized my strong math skills to engineer a custom 3D camera for playful interactive ski resort maps using Three.js
 - Capitalized on my broad generalist programming skill set to create a custom back-end API integrating Stripe payment system
@@ -37,11 +38,12 @@ Software Developer
 - Integrated a physics engine into multiple mobile platforms to make a fun interactive simulation for Starbucks
 - Integrated OpenGL into native iOS UIKit, created custom 3D animations and effects, designed and implemented a 2D fluid simulation, wrote custom shaders and optimized sluggish UI code to prioritize a smooth experience for Nickelodeon's primary iOS app
 - Engineered the front and back-end of a working prototype of a multi-player online poker game
-- Built custom-made, engaging interactive prototypes and final products for mobile and web using Swift, JavaScript, CSS, OpenGL, C/C++, Objective-C, Python, Java and others for clients such as Nike, National Geographic, Google, HBO, PayPal, Nokia and more
+- Built custom-made, engaging interactive prototypes and final products for mobile and web using Swift, JavaScript, CSS, OpenGL, C/C++, Objective-C, Python, Java and others for clients such as Nike, National Geographic, Google, HBO, PayPal and Nokia
 
-04/2010 – Present
-Company: Ultramegatronic
+04/2010 – Present  
+Company: Ultramegatronic  
 Game Developer
+
 - Released solo-developed Flipominos, a procedurally generated puzzle game for Apple TV, iPhone and iPad in 2016 that features a custom-developed algorithm that progressively scales the difficulty
 - Released solo-developed game Envelop, an action-puzzle game for iPhone in 2012
 - Built a custom game engine for Apple platforms using Objective-C, OpenGL, custom shaders (GLSL) and OpenAL to facilitate Envelop and early prototypes
@@ -49,21 +51,24 @@ Game Developer
 - Ported a subset of the Chipmunk 2D physics engine to the Playdate handheld and created a playable prototype with procedurally generated levels using the C API; developed a companion tool desktop app to visualize and develop the procedural level creation
 - Created a legible, playable solitaire game for the Arduboy using Arduino flavored C++, a particular challenge with the device's 1-bit 128x64 screen
 
-09/2019 – 04/2020
-Company: Impossible Bureau
+09/2019 – 04/2020  
+Company: Impossible Bureau  
 Lead Software Developer
+
 - Made stunning 3D visualizations as early prototype work for Mya Lynn’s What Is Missing project, including integrated run-time design tools
 - Integrated custom WebAssembly/WebGL pipeline into React project, including server-side compiling of WebAssembly
 - Loaded and programmatically animated GLTF 3D models with a custom-made Three.js + React stack
 - Taught and advocated the benefits of broad programming knowledge and gave general team leadership to small team of mostly junior web developers
 
-02/2007 – 04/2010
-Company: Struck
+02/2007 – 04/2010  
+Company: Struck  
 Software Developer
+
 - Contributed to the design concept, engineered the image processing code and solved the creative programming challenges for LEGO Photo, LEGO’s first iPhone app, which received millions of downloads in the early days of the AppStore
 - Developed the interactive programming, animated and engineered back-ends for many successful marketing campaigns, apps and websites for clients such as Nintendo, adidas and Old Spice
 
 Education
-Graduated: 2004
-Brigham Young University
+
+Graduated: 2004  
+Brigham Young University  
 Bachelor of Arts, Visual Arts
