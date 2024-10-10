@@ -8,21 +8,21 @@ GitHub: github.com/laxcat
 
 Summary
 
-- 10+ years UI and interactive motion development for font-end, mobile and game engines in client-based creative marketing and digital product industries
+- 10+ years UI and interactive motion development for font-end, mobile and game engines in the client-based creative marketing and digital product industries
 - Strong creative skills, work well with artists and designers to implement immersive, detail oriented creative experiences
 - 10+ years iOS and general mobile development, specializing in native Apple frameworks, especially UIKit and Core Animation
 - 10+ years of full-stack, Flash, and generalist creative web developer skills
 - 10 years 3D programming, general game-dev, low-level graphics API implementation
 - Strong generalist engineering skills, software design patterns, 3D math (linear algebra, vector/matrix math, quaternions), object-oriented design, algorithms, data structures
-- Worked with clients such as Toyota, Nike, National Geographic, Nickelodeon, Google, HBO, PayPal, Nokia, Nintendo, adidas, Old Spice and many more
-- Client-dependent career demonstrates strong problem solving, troubleshooting and communication skills
+- Worked with clients such as Toyota, Nike, National Geographic, Nickelodeon, Google, HBO, PayPal, Nokia, Nintendo, adidas, Old Spice and more
+- Client-dependent career demonstrates strong problem-solving, troubleshooting and communication skills
 - Proven as self-motivated, self-managing team player with strong work ethic from career as contractor
-- Lifelong love of learning, developing, improving technical skills
+- Lifelong love of learning, developing, and improving technical skills
 
 Skills
 
-- Expert with C++, C, JavaScript (native, ES Modules), CSS, shaders (GLSL, HLSL, Cg, MSL, ShaderLab), Python, Objective-C, Swift, WebGL
-- Proficient with Three.js, Rive, WebAssembly (WASM), CMake, Xcode, BGFX, GLFW, OpenGL, OpenAL, Metal, Flash, AS3, NPM, React, React Boilerplate, Procreate, Blender, Illustrator, Photoshop, Sketch, Unreal Engine (UE5)
+- Expert with C++, C, JavaScript (native, ES Modules), CSS, WebGL, shaders (GLSL, HLSL, Cg, MSL, ShaderLab), Python, Objective-C, Swift
+- Proficient with Three.js, Rive, WebAssembly (WASM), CMake, Xcode, BGFX, GLFW, OpenGL, OpenAL, Metal, Flash, AS3, React, React Boilerplate, Procreate, Blender, Illustrator, Photoshop, Sketch, Unreal Engine (UE5)
 - Shipped projects for platforms: iOS, Web, Apple TV, macOS, Android, Windows, Windows Phone
 
 Experience
@@ -65,7 +65,7 @@ Company: Struck
 Software Developer
 
 - Contributed to the design concept, engineered the image processing code and solved the creative programming challenges for LEGO Photo, LEGO’s first iPhone app, which received millions of downloads in the early days of the AppStore
-- Developed the interactive programming, animated and engineered back-ends for many successful marketing campaigns, apps and websites for clients such as Nintendo, adidas and Old Spice
+- Developed the interactive programming, animated, and engineered back-ends for many successful marketing campaigns, apps and websites for clients such as Nintendo, adidas and Old Spice
 
 Education
 
