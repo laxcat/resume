@@ -1,6 +1,6 @@
 # Résumé and Parser
 
-This repository is the official source of truth for my résumé data, in text format: [tyler-martin-resume.txt]. It also contains [parse.py], a résumé parsing script specifically designed to interpret my résumé‘s data. See a technical breakdown below. 
+This repository is the official source of truth for my résumé data, in text format: [tyler-martin-resume.txt]. It also contains [parse.py], a résumé parsing script specifically designed to interpret my text-based data.
 
 ## parse.py
 
