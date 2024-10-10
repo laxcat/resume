@@ -22,7 +22,7 @@ Summary
 Skills
 
 - Expert with C++, C, JavaScript (native, ES Modules), CSS, WebGL, shaders (GLSL, HLSL, Cg, MSL, ShaderLab), Python, Objective-C, Swift
-- Proficient with Three.js, Rive, WebAssembly (WASM), CMake, Xcode, BGFX, GLFW, OpenGL, OpenAL, Metal, Flash, AS3, React, React Boilerplate, Procreate, Blender, Illustrator, Photoshop, Sketch, Unreal Engine (UE5)
+- Proficient with Three.js, Rive, WebAssembly (WASM), CMake, Xcode, BGFX, GLFW, OpenGL, OpenAL, Metal, C#, Lua, Flash, AS3, React, React Boilerplate, Procreate, Blender, Illustrator, Photoshop, Sketch, Unreal Engine (UE5)
 - Shipped projects for platforms: iOS, Web, Apple TV, macOS, Android, Windows, Windows Phone
 
 Experience
