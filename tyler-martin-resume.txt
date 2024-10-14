@@ -32,8 +32,8 @@ Company: Tyler Martin Software Development
 Software Developer
 
 - Built a custom physically based renderer prototype intended to power in-dash systems for an internal design team at Toyota as a potential backup for their more experimental efforts
-- Utilized my strong math skills to engineer a custom 3D camera for playful interactive ski resort maps using Three.js
-- Capitalized on my broad generalist programming skill set to create a custom back-end API integrating Stripe payment system
+- Utilized strong math skills to engineer a custom 3D camera for playful interactive ski resort maps using Three.js
+- Capitalized on broad generalist programming skill set to create a custom back-end API integrating Stripe payment system
 - Created custom animated shaders for multiple platforms and shader languages (desktop Unity, iOS Metal) and fine-tuned 3D motion for an unreleased installation project for Tokyo 2020
 - Integrated a physics engine into multiple mobile platforms to make a fun interactive simulation for Starbucks
 - Integrated OpenGL into native iOS UIKit, created custom 3D animations and effects, designed and implemented a 2D fluid simulation, wrote custom shaders and optimized sluggish UI code to prioritize a smooth experience for Nickelodeon's primary iOS app
