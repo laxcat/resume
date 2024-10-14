@@ -4,7 +4,9 @@ import sys, json, re
 from subprocess import run
 from os import remove
 from os.path import dirname, abspath
+from os.path import dirname, abspath, basename
 import pprint
+import argparse
 
 DIR = dirname(abspath(__file__))
 RUN = lambda cmd, path=DIR : run(cmd, shell=True, cwd=path, capture_output=True)
@@ -19,6 +21,21 @@ max_attempts    = 10
 runt_threshold  = 3
 
 
+# override default settings from commandline
+args = argparse.ArgumentParser(
+    prog=basename(__file__),
+    description="Parse personal résumé data in specific text format."
+)
+args.add_argument("--in_file",        required=False, help="Input TXT file", type=pathlib.Path)
+args.add_argument("--out_file",       required=False, help="Output PDF file", type=pathlib.Path)
+args.add_argument("--margin_size",    required=False, help="Top-bottom page margin in inches", type=float)
+args.add_argument("--font_size",      required=False, help="Main font size in points", type=float)
+args.add_argument("--max_attempts",   required=False, help="Max number of attempts", type=int)
+args.add_argument("--runt_threshold", required=False, help="At least this number of words on trailing lines", type=int)
+a = args.parse_args().__dict__
+for x in a:
+    if a[x]:
+        globals()[x] = a[x]
 def main():
     s = RUN(f"pandoc -t json {in_file}").stdout
     j = json.loads(s)
