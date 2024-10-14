@@ -3,10 +3,10 @@
 import sys, json, re
 from subprocess import run
 from os import remove
-from os.path import dirname, abspath
 from os.path import dirname, abspath, basename
 import pprint
 import argparse
+import pathlib
 
 DIR = dirname(abspath(__file__))
 RUN = lambda cmd, path=DIR : run(cmd, shell=True, cwd=path, capture_output=True)
@@ -36,22 +36,25 @@ a = args.parse_args().__dict__
 for x in a:
     if a[x]:
         globals()[x] = a[x]
+
+# main logic
 def main():
     s = RUN(f"pandoc -t json {in_file}").stdout
     j = json.loads(s)
     b = j["blocks"]
+    attempt = 1
 
-    info    = parseInfo(b[0]["c"])
-    summary = parseList(b[2]["c"])
-    skills  = parseList(b[4]["c"])
-    exp     = parseExp(b, 6)
-    edu     = parseEdu( b[15]["c"])
+    info    = parse_info(b[0]["c"])
+    summary = parse_list(b[2]["c"])
+    skills  = parse_list(b[4]["c"])
+    exp, n  = parse_exp(b, 6)
+    edu     = parse_edu( b[n+1]["c"])
 
     global margin_size
     global font_size
 
     def make():
-        return makePDF(
+        return make_pdf(
             margin_size = f"{margin_size}in",
             font_size   = f"{font_size}pt",
             info        = info,
@@ -61,9 +64,11 @@ def main():
             edu         = edu,
         )
 
-    attempt = 1
+    def print_msg(lead):
+        print(f"{lead} {attempt}: margin: {margin_size:6.3f}in, font: {font_size:6.3f}")
+
     while True:
-        print("ATTEMPT", attempt, margin_size, font_size)
+        print_msg("ATTEMPT")
         res = make()
         if res["page_count"] > 2 and attempt <= max_attempts:
             print(f"TOO MANY PAGES ({res['page_count']})!")
@@ -73,14 +78,13 @@ def main():
             continue
         break
 
-    finish_str = f"({attempt} attempts), margin:{margin_size}in, font:{font_size}"
     if res["page_count"] <= 2:
-        print(f"SUCCESS", finish_str)
+        print_msg("SUCCESS")
         RUN(f"open {out_file}")
     else:
-        print(f"FAILED", finish_str)
+        print_msg("FAILED ")
 
-def gatherUntil(a, i, until="LineBreak"):
+def gather_until(a, i, until="LineBreak"):
     while i < len(a) and a[i]["t"] != "Str":
         i += 1
     s = ""
@@ -94,7 +98,7 @@ def gatherUntil(a, i, until="LineBreak"):
     i += 1
     return s, i
 
-def joinNodes(a):
+def join_nodes(a):
     s = ""
     for x in a:
         if x["t"] == "Space":
@@ -106,21 +110,21 @@ def joinNodes(a):
 def check(value, value2):
     return re.sub(r"[^a-z]", "", value.lower()) == value2
 
-def parseInfo(info):
+def parse_info(info):
     i = 0
-    name, i = gatherUntil(info, i)
-    title, i = gatherUntil(info, i)
+    name, i = gather_until(info, i)
+    title, i = gather_until(info, i)
     while i < len(info):
         if check(info[i]["c"], "email"):
-            email, i = gatherUntil(info, i+1)
+            email, i = gather_until(info, i+1)
         if check(info[i]["c"], "phone"):
-            phone, i = gatherUntil(info, i+1)
+            phone, i = gather_until(info, i+1)
         if check(info[i]["c"], "portfolio"):
-            portfolio, i = gatherUntil(info, i+1)
+            portfolio, i = gather_until(info, i+1)
         if check(info[i]["c"], "linkedin"):
-            linkedin, i = gatherUntil(info, i+1)
+            linkedin, i = gather_until(info, i+1)
         if check(info[i]["c"], "github"):
-            github, i = gatherUntil(info, i+1)
+            github, i = gather_until(info, i+1)
     return {
         "name": name,
         "title": title,
@@ -131,54 +135,54 @@ def parseInfo(info):
         "github": github,
     }
 
-def parseExp(b, i):
+def parse_exp(b, i):
     jobs = []
     while i+1 < len(b) and b[i+1]["t"] == "BulletList":
         job = b[i]["c"]
         j = 0
-        dates, j = gatherUntil(job, j)
-        company, j = gatherUntil(job, j)
-        title, j = gatherUntil(job, j)
+        dates, j = gather_until(job, j)
+        company, j = gather_until(job, j)
+        title, j = gather_until(job, j)
         jobs.append({
             "dates": dates,
             "company": company.replace("Company: ", ""),
             "title": title,
-            "summary": parseList(b[i+1]["c"]),
+            "summary": parse_list(b[i+1]["c"]),
         })
         i += 2
-    return jobs
+    return jobs, i
 
-def parseEdu(edu):
+def parse_edu(edu):
     i = 0
-    year, i = gatherUntil(edu, i)
-    school, i = gatherUntil(edu, i)
-    major, i = gatherUntil(edu, i)
+    year, i = gather_until(edu, i)
+    school, i = gather_until(edu, i)
+    major, i = gather_until(edu, i)
     return {
         "year": year.replace("Graduated: ", ""),
         "school": school,
         "major": major,
     }
 
-def parseList(summary):
-    return [joinNodes(x[0]["c"]) for x in summary]
+def parse_list(summary):
+    return [join_nodes(x[0]["c"]) for x in summary]
 
-def addNBSPs(x):
+def add_nbsp(x):
     items = x.split(" ")
     n = runt_threshold - 1
     nbsp = "&nbsp;"
     return " ".join(items[:-n]) + nbsp + nbsp.join(items[-n:])
 
-def makeListItem(items, join_str):
+def make_list_item(items, join_str):
     item = '<span class="summary"><span>•</span><span>{x}</span></span>'
-    return join_str.join([item.format(x=addNBSPs(x)) for x in items])
+    return join_str.join([item.format(x=add_nbsp(x)) for x in items])
 
-def makePDF(font_size="11pt", margin_size="1in", info={}, summary=[], skills=[], exp=[], edu={}):
+def make_pdf(font_size="11pt", margin_size="1in", info={}, summary=[], skills=[], exp=[], edu={}):
     tab = "    "
-    summaryItems = makeListItem(summary, f"\n{tab}{tab}")
-    skillsItems = makeListItem(skills, f"\n{tab}{tab}")
+    summaryItems = make_list_item(summary, f"\n{tab}{tab}")
+    skillsItems = make_list_item(skills, f"\n{tab}{tab}")
     experienceList = ""
     for e in exp:
-        sumList = makeListItem(e["summary"], f"\n{tab}{tab}{tab}")
+        sumList = make_list_item(e["summary"], f"\n{tab}{tab}{tab}")
         experienceList += f"""<p class="exp">
             <span class="dates">{e["dates"]}</span>
             <span class="company">Company: {e["company"]}</span>
