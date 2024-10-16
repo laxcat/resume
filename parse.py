@@ -19,6 +19,7 @@ margin_size     = .7
 font_size       = 11
 max_attempts    = 10
 runt_threshold  = 3
+page_count      = 2
 
 
 # override default settings from commandline
@@ -32,6 +33,7 @@ args.add_argument("--margin_size",    required=False, help="Top-bottom page marg
 args.add_argument("--font_size",      required=False, help="Main font size in points", type=float)
 args.add_argument("--max_attempts",   required=False, help="Max number of attempts", type=int)
 args.add_argument("--runt_threshold", required=False, help="At least this number of words on trailing lines", type=int)
+args.add_argument("--page_count",     required=False, help="Target page count", type=int)
 a = args.parse_args().__dict__
 for x in a:
     if a[x]:
@@ -70,15 +72,15 @@ def main():
     while True:
         print_msg("ATTEMPT")
         res = make()
-        if res["page_count"] > 2 and attempt <= max_attempts:
-            print(f"TOO MANY PAGES ({res['page_count']})!")
+        if res["page_count"] > page_count and attempt <= max_attempts:
+            print(f"TOO MANY PAGES ({res['page_count']}), target page count: {page_count}!")
             margin_size *= .90
             font_size *= .98
             attempt += 1
             continue
         break
 
-    if res["page_count"] <= 2:
+    if res["page_count"] <= page_count:
         print_msg("SUCCESS")
         RUN(f"open {out_file}")
     else:
